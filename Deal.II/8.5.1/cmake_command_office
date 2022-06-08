@@ -1,0 +1,108 @@
+
+====================================================
+Errors when compiled with only OPENCASCADE flag
+
+step 17:
+ DEAL_II_WITH_PETSC = ON
+ DEAL_II_PETSC_WITH_COMPLEX = OFF
+
+step 18:
+
+
+      DEAL_II_WITH_MPI = ON
+      DEAL_II_WITH_PETSC = ON
+      DEAL_II_PETSC_WITH_COMPLEX = OFF
+
+step 31:
+
+      DEAL_II_WITH_TRILINOS = ON
+
+
+step 32:
+
+      DEAL_II_WITH_MPI = ON
+      DEAL_II_WITH_P4EST = ON
+      DEAL_II_WITH_TRILINOS = ON
+
+step 33:
+
+      DEAL_II_WITH_TRILINOS = ON
+
+
+step 36:
+      DEAL_II_WITH_PETSC = ON
+      DEAL_II_WITH_SLEPC = ON
+      DEAL_II_PETSC_WITH_COMPLEX = OFF
+
+step 40:
+
+      DEAL_II_WITH_PETSC = ON
+      DEAL_II_PETSC_WITH_COMPLEX = OFF
+      DEAL_II_WITH_P4EST = ON
+
+  or
+
+      DEAL_II_WITH_TRILINOS = ON
+      DEAL_II_WITH_P4EST = ON
+
+step 41:
+      DEAL_II_WITH_TRILINOS = ON
+
+step 42:
+      DEAL_II_WITH_MPI = ON
+      DEAL_II_WITH_P4EST = ON
+      DEAL_II_WITH_TRILINOS = ON
+step 43:
+      DEAL_II_WITH_TRILINOS = ON
+
+step 45 :
+      DEAL_II_WITH_MPI = ON
+      DEAL_II_WITH_P4EST = ON
+      DEAL_II_WITH_TRILINOS = ON
+
+step 55:
+      DEAL_II_WITH_PETSC = ON
+      DEAL_II_WITH_P4EST = ON
+      DEAL_II_PETSC_WITH_COMPLEX = OFF
+
+  or
+
+      DEAL_II_WITH_TRILINOS = ON
+      DEAL_II_WITH_P4EST = ON
+
+
+=================
+
+DEAL_II_PETSC_WITH_COMPLEX = OFF
+DEAL_II_WITH_TRILINOS = OFF
+
+
+DEAL_II_WITH_PETSC = ON
+DEAL_II_WITH_MPI = ON
+DEAL_II_WITH_P4EST = ON
+DEAL_II_WITH_SLEPC = ON
+DEAL_II_WITH_TRILINOS = ON
+
+====================
+
+-DP4EST_DIR=/opt/p4est/ -DDEAL_II_WITH_P4EST=ON -DDEAL_II_WITH_MPI=ON
+
+dpkg -L <package name>   // location of a package
+
+
+cmake \
+-DCMAKE_INSTALL_PREFIX=/opt/dealiiflag/ \
+-DP4EST_DIR=/opt/p4est DEAL_II_WITH_P4EST=ON \
+-DOPENCASCADE_DIR=/opt/oce/ -DDEAL_II_WITH_OPENCASCADE=ON \
+-DDEAL_II_PETSC_WITH_COMPLEX=OFF \
+-DDEAL_II_WITH_PETSC=ON \
+-DDEAL_II_WITH_MPI=ON \
+-DDEAL_II_WITH_P4EST=ON \
+-DDEAL_II_WITH_SLEPC=ON \
+-DDEAL_II_WITH_TRILINOS=ON -DTRILINOS_DIR=/opt/trilinos/ \
+-DDEAL_II_WITH_NETCDF=OFF -DNETCDF_DIR=/opt/netcdf/ \
+-DDEAL_II_WITH_HDF5=OFF -DHDF5_DIR=/opt/hdf5/ \
+../dealii-8.5.0
+
+
+
