@@ -1,0 +1,9 @@
+
+cd {/EIGEN/TAR/FILE/PATH}
+tar -xvzf {eigen-x.y.z}.tar.gz
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX={/EIGEN/INSTALL/PATH} ../{eigen-x.y.z}
+make
+make install
+
