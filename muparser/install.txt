@@ -1,0 +1,9 @@
+
+cd {/MUPARSER/TAR/FILE/PATH}
+tar -xvzf {muparser-x.y.z}.tar.gz
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX={/MUPARSER/INSTALL/PATH} ../{muparser-x.y.z}
+make
+make install
+
