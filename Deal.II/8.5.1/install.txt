@@ -1,0 +1,24 @@
+
+--------------------------------------------------------------------------------
+- SECTION:Deal.II library
+--------------------------------------------------------------------------------
+
+One of the requirements of CAVIAR for simulating charged particles near conductive boundaries is deal.II library which is a C++ library for finite element calculations. We have used deal.II version 8.5.1 to develop CAVIAR 1.0.0. We are not sure if any higher or lower version is compatible with our code.
+Deal.II can be compiled with an interface with many libraries which CAVIAR-1.0.0 does not need. What CAVIAR may uses, in addition to deal.II basic solvers, is MPI solvers. In that case, having ‘Trilinos’ library, and/or ‘PETSc’ library installed alongside deal.II would complete CAVIAR-1.0.0 requirements. To install deal.II, first download ‘dealii-8.5.1.tar.gz’, open a terminal and go to the directory you extracted deal.II. Then follow this shell commands:
+
+{BEGINCODE}
+tar -xvzf dealii-8.5.1.tar.gz
+mkdir build
+cd build
+cmake \
+-DCMAKE_INSTALL_PREFIX=/opt/deal.II_release/  \
+-DCMAKE_BUILD_TYPE=Release \
+-DDEAL_II_WITH_MPI=ON \
+-DDEAL_II_WITH_PETSC=ON \
+-DDEAL_II_PETSC_WITH_COMPLEX=OFF \
+-DDEAL_II_WITH_TRILINOS=ON -DTRILINOS_DIR=/opt/trilinos \
+../dealii-8.5.1/
+{ENDCODE}
+
+This configuration assumes that you have installed ‘Trilinos’ and ‘PETSc’ beforehand. These are libraries that allow you to use ‘plt_dealii_mpi’ which is MPI version of the force_field. If you want to run the code in one process, you can turn them off or don’t mention them at all in the CMake command. The correct way to install ‘PETSc’ or ‘Trilinos’ is described in deal.II documentation.
+
